@@ -1,0 +1,291 @@
+WEEK1-DAY1
+Assignment Classroom:
+Classroom Assignment*
+
+Playground link :https://testleaf-ai-playground.sudarshan210688.chatgpt.site/
+1) Linear Regression Algortihm
+----Chennai House pricing
+ a) Select the high loclait points 
+ b) Select low locality point diabling metro and east facing
+Check the Calculation for price
+2) Classification Algorithm
+1) Age <30 and Govt satisfaction less ,urban
+2) Age >50 and Govt statisfaction less ,non urban
+Check the points for classification
+
+a) Select the high loclait points 
+Make a prediction
+Built-up area-1400 sq ft
+Locality-Boat Club · 10
+score 10.0
+Age of building-0 yrs
+Metro station nearby-Yes
+East facing-Yes
+
+Total amount
+360 ₹L
+₹3.60 Cr
+
+*****************************************************************************************************************************
+Base price — the starting value, before any feature counts
+  8.46 ₹L
+
+Built-up area
+  0.054 ₹L per sq ft × 1400 sq ft
+  = +76.2 ₹L
+
+Locality
+  24.1 ₹L per point × 10.0 points
+  = +241 ₹L
+
+Age of building
+  -0.466 ₹L per year × 0 yrs
+  = +0 ₹L
+
+Metro station nearby
+  21.0 ₹L if Yes × Yes
+  = +21.0 ₹L
+
+East facing
+  14.0 ₹L if Yes × Yes
+  = +14.0 ₹L
+
+──────────────────
+TOTAL   360 ₹L (₹3.60 Cr)
+
+**************************************The trained model***********************************************
+Price_Lakhs in ₹L =
+  8.46 ₹L ← base price (minimum)
+  + 0.054 ₹L per sq ft  × Built-up area
+  + 24.1 ₹L per point  × Locality
+  − 0.466 ₹L per year  × Age of building
+  + 21.0 ₹L if Yes  × Metro station nearby
+  + 14.0 ₹L if Yes  × East facing
+
+*********** 2544 sq ft · 4.75 · 10.0 yrs · no metro station nearby · East facing***********************
+
+  8.46 (base)
+  + 0.054 × 2544 = +139
+  + 24.1 × 4.75 = +114
+  − 0.466 × 10.0 = -4.66
+  + 21.0 × No = +0
+  + 14.0 × Yes = +14.0
+──────────────
+model says   271 ₹L (₹2.71 Cr)
+actual value  266 ₹L (₹2.66 Cr)
+
+__________________________________________________________________________________________________________________________
+b) Select low locality point diabling metro and east facing
+Make a prediction
+Built-up area-1400 sq ft
+Locality-Avadi · 0.8
+score 0.8
+Age of building-0 yrs
+Metro station nearby-No
+East facing-No
+Total amount
+104 ₹L
+₹1.04 Cr
+*****************************************************************************************************************************
+Base price — the starting value, before any feature counts
+  8.46 ₹L
+
+Built-up area
+  0.054 ₹L per sq ft × 1400 sq ft
+  = +76.2 ₹L
+
+Locality
+  24.1 ₹L per point × 0.800 points
+  = +19.3 ₹L
+
+Age of building
+  -0.466 ₹L per year × 0 yrs
+  = +0 ₹L
+
+Metro station nearby
+  21.0 ₹L if Yes × No
+  = +0 ₹L
+
+East facing
+  14.0 ₹L if Yes × No
+  = +0 ₹L
+
+──────────────────
+TOTAL   104 ₹L (₹1.04 Cr)
+The trained model
+Price_Lakhs in ₹L =
+  8.46 ₹L ← base price (minimum)
+  + 0.054 ₹L per sq ft  × Built-up area
+  + 24.1 ₹L per point  × Locality
+  − 0.466 ₹L per year  × Age of building
+  + 21.0 ₹L if Yes  × Metro station nearby
+  + 14.0 ₹L if Yes  × East facing
+Sample calculation — one real row from the data
+2544 sq ft · 4.75 · 10.0 yrs · no metro station nearby · East facing
+
+  8.46 (base)
+  + 0.054 × 2544 = +139
+  + 24.1 × 4.75 = +114
+  − 0.466 × 10.0 = -4.66
+  + 21.0 × No = +0
+  + 14.0 × Yes = +14.0
+──────────────
+model says   271 ₹L (₹2.71 Cr)
+actual value  266 ₹L (₹2.66 Cr)
+
+_____________________________________________________________________________________________________________________________________________
+2) Classification Algorithm
+1) Age <30 and Govt satisfaction less ,urban
+Make a prediction
+Age-27.0 yrs
+Govt. satisfaction-2.50 /10
+Urban voter-Yes
+
+Predicted preference
+Party T
+Step 1 — each class gets its own score = base + (weight × this voter's value), added up
+
+  Party A
+    -9.51 pts ← base points
+    − 0.019 × 27.0 (Age) = -0.518
+    + 2.08 × 2.50 (Govt. satisfaction) = +5.19
+    − 0.999 × Yes (Urban voter) = -0.999
+    ────────
+    = -5.84 pts
+
+  Party T
+    13.2 pts ← base points
+    − 0.170 × 27.0 (Age) = -4.59
+    − 1.46 × 2.50 (Govt. satisfaction) = -3.65
+    + 1.16 × Yes (Urban voter) = +1.16
+    ────────
+    = 6.14 pts
+
+  Party C
+    2.53 pts ← base points
+    + 0.057 × 27.0 (Age) = +1.54
+    − 0.873 × 2.50 (Govt. satisfaction) = -2.18
+    − 1.28 × Yes (Urban voter) = -1.28
+    ────────
+    = 0.613 pts
+
+  Undecided
+    3.05 pts ← base points
+    − 0.067 × 27.0 (Age) = -1.81
+    + 0.388 × 2.50 (Govt. satisfaction) = +0.969
+    − 0.327 × Yes (Urban voter) = -0.327
+    ────────
+    = 1.88 pts
+──────────────
+highest score wins → Party T
+Step 2a — convert each score to e^score (always positive)
+
+  Party A    e^-5.84 = 0.003
+  Party T    e^6.14 = 463
+  Party C    e^0.613 = 1.85
+  Undecided  e^1.88 = 6.53
+──────────────
+Total (add all 4 up)  =  471
+Step 2b — each class's share = its own e^score ÷ that same total (471)
+
+  Party A    0.003 ÷ 471 = 0.0%
+  Party T    463 ÷ 471 = 98.2%
+  Party C    1.85 ÷ 471 = 0.4%
+  Undecided  6.53 ÷ 471 = 1.4%
+──────────────
+All 4 shares add back up to 100% — that's the whole point of dividing by the same total. e (≈ 2.71828) is just a fixed constant that turns any score positive and stretches the gap between a high score and a low one.
+The trained model
+Party A score = -9.51 pts ← base points (starting score) − 0.019×Age + 2.08×Govt. satisfaction − 0.999×Urban voter
+
+Party T score = 13.2 pts ← base points (starting score) − 0.170×Age − 1.46×Govt. satisfaction + 1.16×Urban voter
+
+Party C score = 2.53 pts ← base points (starting score) + 0.057×Age − 0.873×Govt. satisfaction − 1.28×Urban voter
+
+Undecided score = 3.05 pts ← base points (starting score) − 0.067×Age + 0.388×Govt. satisfaction − 0.327×Urban voter
+Sample calculation — one real row
+45.7 yrs · 6.43 /10 · not urban voter
+
+  Party A    2.97
+  Party T    -3.94
+  Party C    -0.472
+  Undecided  2.47
+──────────────
+highest wins → Party A
+actual          Party A
+-----------------------------------------------------------------------------------------------------------------------------------------------
+2) Age >50 and Govt statisfaction less ,non urban
+Make a prediction
+Age-60.0 yrs
+Govt. satisfaction-2.50 /10
+Urban voter-No
+Predicted preference
+Party C
+Step 1 — each class gets its own score = base + (weight × this voter's value), added up
+
+  Party A
+    -9.51 pts ← base points
+    − 0.019 × 60.0 (Age) = -1.15
+    + 2.08 × 2.50 (Govt. satisfaction) = +5.19
+    − 0.999 × No (Urban voter) = +0
+    ────────
+    = -5.47 pts
+
+  Party T
+    13.2 pts ← base points
+    − 0.170 × 60.0 (Age) = -10.2
+    − 1.46 × 2.50 (Govt. satisfaction) = -3.65
+    + 1.16 × No (Urban voter) = +0
+    ────────
+    = -0.629 pts
+
+  Party C
+    2.53 pts ← base points
+    + 0.057 × 60.0 (Age) = +3.43
+    − 0.873 × 2.50 (Govt. satisfaction) = -2.18
+    − 1.28 × No (Urban voter) = +0
+    ────────
+    = 3.78 pts
+
+  Undecided
+    3.05 pts ← base points
+    − 0.067 × 60.0 (Age) = -4.02
+    + 0.388 × 2.50 (Govt. satisfaction) = +0.969
+    − 0.327 × No (Urban voter) = +0
+    ────────
+    = -0.009 pts
+──────────────
+highest score wins → Party C
+Step 2a — convert each score to e^score (always positive)
+
+  Party A    e^-5.47 = 0.004
+  Party T    e^-0.629 = 0.533
+  Party C    e^3.78 = 43.7
+  Undecided  e^-0.009 = 0.991
+──────────────
+Total (add all 4 up)  =  45.2
+Step 2b — each class's share = its own e^score ÷ that same total (45.2)
+
+  Party A    0.004 ÷ 45.2 = 0.0%
+  Party T    0.533 ÷ 45.2 = 1.2%
+  Party C    43.7 ÷ 45.2 = 96.6%
+  Undecided  0.991 ÷ 45.2 = 2.2%
+──────────────
+All 4 shares add back up to 100% — that's the whole point of dividing by the same total. e (≈ 2.71828) is just a fixed constant that turns any score positive and stretches the gap between a high score and a low one.
+The trained model
+Party A score = -9.51 pts ← base points (starting score) − 0.019×Age + 2.08×Govt. satisfaction − 0.999×Urban voter
+
+Party T score = 13.2 pts ← base points (starting score) − 0.170×Age − 1.46×Govt. satisfaction + 1.16×Urban voter
+
+Party C score = 2.53 pts ← base points (starting score) + 0.057×Age − 0.873×Govt. satisfaction − 1.28×Urban voter
+
+Undecided score = 3.05 pts ← base points (starting score) − 0.067×Age + 0.388×Govt. satisfaction − 0.327×Urban voter
+Sample calculation — one real row
+45.7 yrs · 6.43 /10 · not urban voter
+
+  Party A    2.97
+  Party T    -3.94
+  Party C    -0.472
+  Undecided  2.47
+──────────────
+highest wins → Party A
+actual          Party A
